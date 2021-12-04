@@ -1,10 +1,10 @@
-(ns advent-of-code-2021.day2-test
+(ns advent.day2-test
   (:require [clojure.test :refer :all]
-            [advent-of-code-2021.day2 :refer :all]))
+            [advent.day2 :refer :all]))
 
-(def example (slurp "src/advent_of_code_2021/day2/example.txt"))
+(def example (slurp "src/advent/day2/example.txt"))
 
-(def input (slurp "src/advent_of_code_2021/day2/input.txt"))
+(def input (slurp "src/advent/day2/input.txt"))
 
 (deftest first-part-example-test
   (testing "Test the example for the first part."

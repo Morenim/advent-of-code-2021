@@ -1,4 +1,4 @@
-(ns advent-of-code-2021.day1)
+(ns advent.day1)
 
 (defn clean-string [x] (map #(Integer/parseInt %1) (clojure.string/split-lines x)))
 

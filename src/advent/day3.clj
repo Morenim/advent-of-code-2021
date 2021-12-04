@@ -1,4 +1,4 @@
-(ns advent-of-code-2021.day3)
+(ns advent.day3)
 
 ;; Common functions
 (defn parse-input [s] (vec (map vec (map seq (clojure.string/split-lines s)))))
