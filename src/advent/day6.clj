@@ -13,12 +13,12 @@
   (reduce #(merge-with (fn [r _] (inc r)) %1 {[false %2] 1}) {} xs))
 
 (defn simulate [state]
-   (reduce-kv (fn [acc [isNew time] nr]
-                (merge-with + acc
-                            (if (= time 0)
-                              {[false 6] nr [true 8] nr}
-                              {[isNew (dec time)] nr}))
-                ) {} state))
+  (reduce-kv (fn [acc [isNew time] nr]
+               (merge-with + acc
+                           (if (= time 0)
+                             {[false 6] nr [true 8] nr}
+                             {[isNew (dec time)] nr}))
+               ) {} state))
 
 (defn solve [n s]
   (count-fish (nth (iterate simulate (init-state (parse-input s))) n)))
