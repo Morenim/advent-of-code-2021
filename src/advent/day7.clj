@@ -2,9 +2,9 @@
 
 (require '[clojure.string :as str])
 
-(defn parse-int [s] (Integer/parseInt s))
+(require '[advent.util :as util])
 
-(defn parse-input [s] (map parse-int (str/split s #",")))
+(defn parse-input [s] (map util/parse-int (str/split s #",")))
 
 (defn simplify [p] [(apply min p) (apply max p) (frequencies p)])
 
@@ -14,12 +14,10 @@
 
 (defn diff [a b] (Math/abs ^long (- a b)))
 
-(defn sum [x] (reduce + 0 x))
-
 (defn take-smallest [p] (reduce (fn [x y] (if (< x y) (reduced x) y)) p))
 
 (defn calculate-cost-position [fuel-fn pos freqs]
-  (sum (map (fn [[slot freq]] (* freq (fuel-fn (diff pos slot)))) freqs)))
+  (util/sum (map (fn [[slot freq]] (* freq (fuel-fn (diff pos slot)))) freqs)))
 
 (defn calculate-fuel-costs [fuel-fn [mi ma freqs]]
   (map #(calculate-cost-position fuel-fn % freqs) (range mi (inc ma))))
